@@ -1,0 +1,760 @@
+/* Custom Fonts */
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Theme Colors */
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #000000;
+    --bg-secondary: #f3f4f6;
+    --text-secondary: #4b5563;
+    --accent-color: #000000;
+    --border-color: #e5e7eb;
+    --text-primary-rgb: 0, 0, 0;
+    --accent-color-rgb: 0, 0, 0;
+}
+
+.dark {
+    --bg-primary: #000000;
+    --text-primary: #ffffff;
+    --bg-secondary: #111827;
+    --text-secondary: #9ca3af;
+    --accent-color: #ffffff;
+    --border-color: #374151;
+    --text-primary-rgb: 255, 255, 255;
+    --accent-color-rgb: 255, 255, 255;
+}
+
+/* Base Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Ensure the main site logo is positioned correctly */
+.logo {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	display: block;
+	z-index: 100; /* High z-index to ensure it's on top */
+	transition: all 250ms linear;
+}
+.logo img {
+	height: 26px;
+	width: auto;
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Navigation Links */
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-primary) !important;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile Navigation Links */
+.mobile-nav-link {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    transform: translateX(1rem);
+    opacity: 0.8;
+}
+
+/* Social Links */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
+    transform: translateY(-3px);
+}
+
+/* Hide Desktop Navigation on smaller screens */
+@media (max-width: 1023px) {
+    nav.lg\:block {
+        display: none !important;
+    }
+    /* Custom styles for the mobile fixed top navigation bar */
+    nav.lg\:hidden {
+        padding: 1rem 1.5rem !important; /* Increase padding for a larger nav bar */
+        min-height: 60px; /* Ensure a comfortable minimum height */
+    }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateX(-100%); 
+    }
+    to { 
+        transform: translateX(0); 
+    }
+}
+
+@keyframes scaleIn {
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Mobile Menu */
+#mobileMenu {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, color 0.3s ease;
+}
+
+#mobileMenu.active {
+    transform: translateX(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-secondary) !important;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color) !important;
+}
+
+/* Dark Mode Scrollbar */
+.dark ::-webkit-scrollbar-track {
+    background: var(--text-secondary) !important; /* Use theme variable for inversion */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--text-primary) !important;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-primary) !important;
+}
+
+/* Form elements */
+input, textarea {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    outline: none !important;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+}
+
+/* Parallax Effect */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Loading Spinner */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* AOS animation overrides (ensure compatibility with theme) */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Button Styles */
+button, .button {
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--bg-primary) !important;
+    background-color: var(--text-primary) !important;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+}
+
+button::after, .button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--accent-color-rgb), 0.1);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+button:hover::after, .button:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+button:hover, .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px -1px rgba(var(--text-primary-rgb), 0.1);
+}
+
+/* Scroll down/up indicators */
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.scroll-up {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 99;
+    display: none; /* Hidden by default */
+}
+
+/* Section Header with Line */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.section-title-line {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 3rem; /* Adjusted for better spacing below the title */
+}
+
+.section-title-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Adjust line width as needed */
+    height: 2px;
+    background-color: var(--text-primary);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-secondary) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer p,
+footer a {
+    color: var(--text-secondary) !important;
+}
+
+footer a:hover {
+    color: var(--text-primary) !important;
+}
+
+/* Background Section for alternating colors */
+.bg-section {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Keep border-radius for potential future use, but remove visible border/background */
+    background-color: transparent !important; /* Remove background color */
+    color: var(--text-primary) !important;
+    border: none !important; /* Remove border */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: transparent !important; /* Ensure no background on hover */
+    color: var(--accent-color) !important; /* Maintain hover color change */
+}
+
+html:not(.dark) .theme-toggle-btn .fa-moon,
+html.dark .theme-toggle-btn .fa-sun {
+    display: block;
+}
+
+html:not(.dark) .theme-toggle-btn .fa-sun,
+html.dark .theme-toggle-btn .fa-moon {
+    display: none;
+}
+
+/* Ensure theme toggle icon color adapts to dark/light mode */
+.theme-toggle-btn .fas {
+    color: var(--text-primary) !important;
+}
+
+html.dark .theme-toggle-btn .fas.fa-moon,
+html.dark .theme-toggle-btn .fas.fa-sun {
+    color: var(--text-primary) !important;
+}
+
+/* Section Specific Text Colors (ensure readability) */
+#hero h2, #hero p {
+    color: #fff !important; /* Always white text on hero background */
+}
+
+#about h2, #about p {
+    color: var(--text-primary) !important;
+}
+
+#gallery h2 {
+    color: var(--text-primary) !important;
+}
+
+#contact h2, #contact label {
+    color: var(--text-primary) !important;
+}
+
+#skills {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+#skills h2 {
+    color: var(--text-primary) !important;
+}
+
+.skill-item {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(var(--text-primary-rgb), 0.1);
+    transition: all 0.3s ease;
+}
+
+.skill-item span {
+    color: var(--text-primary) !important;
+}
+
+.skill-bar-container {
+    background-color: var(--border-color) !important;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background-color: var(--accent-color) !important;
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+    .skill-item span {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Menu Button */
+#mobileMenuBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 70%; /* Keep border-radius for potential future use, but remove visible border/background */
+    background-color: transparent !important; /* Remove background color */
+    color: var(--text-primary) !important;
+    border: none !important; /* Remove border */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#mobileMenuBtn:hover {
+    background-color: transparent !important; /* Ensure no background on hover */
+    color: var(--accent-color) !important; /* Maintain hover color change */
+}
+
+#mobileMenuBtn .fas.fa-bars {
+    display: block;
+}
+
+#mobileMenuBtn .fas.fa-times {
+    display: none;
+}
+
+#mobileMenuBtn.active .fas.fa-bars {
+    display: none;
+}
+
+#mobileMenuBtn.active .fas.fa-times {
+    display: block;
+}
+
+/* Ensure mobile menu icon color adapts to dark/light mode */
+#mobileMenuBtn .fas {
+    color: var(--text-primary) !important;
+}
+
+html.dark #mobileMenuBtn .fas.fa-bars {
+    color: var(--text-primary) !important; /* Force white color for hamburger in dark mode, initial state */
+}
+
+html.dark #mobileMenuBtn .fas.fa-times {
+    color: var(--text-primary) !important; /* Ensure white color for 'X' icon in dark mode */
+}
+
+#mobileMenu > div {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+#mobileMenu > div > div:first-child {
+    color: var(--text-primary);
+}
+
+#mobileMenu nav.flex-1 {
+    margin-top: 20% !important;
+}
+
+/* === GALLERY SLIDER STYLES (ADAPTED) === */
+/* Main container for each category's gallery */
+.gallery-category-section {
+    margin-bottom: 4rem; /* Provides space between Manmade, Nature, People sections */
+}
+
+/* Specific slider container for each category */
+.slider-section {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+/* Radio buttons are hidden, labels are the visible thumbnails */
+[type="radio"]:checked,
+[type="radio"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+
+.checkbox:checked + label,
+.checkbox:not(:checked) + label{
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+  margin-right: 6px;
+  margin-left: 6px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--border-color); /* Uses your theme border color */
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  animation: border-transform 6s linear infinite alternate forwards;
+  animation-play-state: paused;
+  /* The background-image for these labels is now set inline in HTML for each specific thumbnail */
+}
+
+.checkbox:checked + label{
+  box-shadow: 0 8px 25px 0 rgba(var(--text-primary-rgb), 0.3); /* Uses your theme text color for shadow */
+  transform: scale(1.3);
+  animation-play-state: running;
+}
+
+@keyframes border-transform{
+  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
+  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
+  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
+  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
+  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
+  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
+  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
+}
+
+.slider-height-padding {
+  padding-top: 440px; /* Space for the main image above the thumbnails */
+}
+
+.slider-section ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  z-index: 100; /* Ensure slider content is above other elements */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.slider-section ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex; /* Use flex to center the image */
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 400px; /* Height for the main displayed image area */
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease; /* Explicitly transition opacity for smooth change */
+}
+
+/* Wrapper for the main image to control its sizing */
+.main-slide-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex; /* Use flex to center the inner image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: var(--bg-primary) !important; /* Changed to theme primary background */
+}
+
+/* Ensure wrapper background is black in dark mode */
+.dark .main-slide-image-wrapper {
+    background-color: #000 !important;
+}
+
+/* The main image itself inside the list item */
+.slider-section ul li img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    border-radius: 12px;
+    border: 5px solid var(--border-color) !important;
+    box-sizing: border-box !important;
+    /* REMOVED: background-color: #000; */
+    /* REMOVED: display: block; */
+    /* REMOVED: margin: auto; */
+    box-shadow: 0 8px 25px 0 rgba(var(--text-primary-rgb), 0.1) !important; /* NEW: Add box-shadow to the image */
+}
+
+/* Hide the span for titles on the main image, as the title is now above the slider */
+.slider-section ul li span {
+    display: none;
+}
+
+/* Show active slide */
+.checkbox.frst:checked ~ ul li:nth-child(1),
+.checkbox.scnd:checked ~ ul li:nth-child(2),
+.checkbox.thrd:checked ~ ul li:nth-child(3) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 767px) {
+  .slider-height-padding {
+    padding-top: 340px;
+  }
+  .slider-section ul li {
+    height: 300px;
+  }
+}
+
+@media (max-width: 575px) {
+  .slider-height-padding {
+    padding-top: 240px;
+  }
+  .slider-section ul li {
+    height: 200px;
+  }
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    height: 100vh; /* Ensure hero section takes full viewport height */
+    width: 100%;
+    overflow: hidden;
+    background-color: #727272; /* New background color for the homepage */
+}
+
+#hero > div:first-child { /* Target the div containing the background image */
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex; /* Use flex to center the image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 0; /* Ensure it's behind content */
+}
+
+#hero img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Ensure image is fully contained, no cropping */
+    display: block !important;
+    /* Removed opacity: 0.4; as it's now a transparent PNG */
+}

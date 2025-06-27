@@ -10,7 +10,7 @@ const folders = [
   { from: 'Perfume_website', to: 'perfume' },
   { from: 'Portfolio_website', to: 'portfolio' },
   { from: 'Startup_web', to: 'startup' },
-  { from: 'ai-conference-2025/out', to: 'ai' },
+  { from: 'ai-conference-2025/out', to: 'ai-conference-2025' },
 ];
 
 // Clean and create final-out folder

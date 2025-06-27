@@ -1,0 +1,23 @@
+{
+  "name": "upwork",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rushiiaher/MyCrafts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rushiiaher/MyCrafts/issues"
+  },
+  "homepage": "https://github.com/rushiiaher/MyCrafts#readme",
+  "description": "",
+  "dependencies": {
+    "fs-extra": "^11.3.0"
+  }
+}

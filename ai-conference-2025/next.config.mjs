@@ -1,8 +1,9 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-};
+  output: 'export', // if you're using static export
+  basePath: '/ai',  // 👈 This is the fix
+  trailingSlash: true
+}
 
-export default nextConfig;
+export default nextConfig
